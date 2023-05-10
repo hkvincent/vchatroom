@@ -7,6 +7,9 @@ var server = app.listen(4000, () => console.log('server run on port 4000...'));
 
 
 app.use(express.static('public'));
+app.get('/', (req, res) => {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+})
 
 var io = socket(server);
 io.on('connection',(socket)=> {
@@ -25,3 +28,5 @@ io.on('connection',(socket)=> {
         socket.broadcast.emit('typing-cancel',data);
     })
 })
+
+module.exports = app
