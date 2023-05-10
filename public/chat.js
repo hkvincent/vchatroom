@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:4000');
+var socket = io.connect('http://vchatroom.vercel.app:4000');
 
 var message = document.getElementById('message'),
     handle = document.getElementById('handle'),
